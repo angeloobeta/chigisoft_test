@@ -105,7 +105,7 @@ class HomeAgent extends StatelessWidget {
                         padding: const EdgeInsets.all(20.0),
                         child: Column(
                           children: [
-                            textButton(radius:5,    width:double.maxFinite, height: 45,text: "NAME", onPressed: (){}, buttonColor: hexColor("E7EAF4"),addIcon: false),
+                            textButton(radius:5,  align: true,  width:double.maxFinite, height: 45,text: "NAME", onPressed: (){}, buttonColor: hexColor("E7EAF4"),addIcon: false),
                             AdaptivePositioned(
                               ExpansionPanelList.radio(
                                 children: model.paragraphs
@@ -124,6 +124,12 @@ class HomeAgent extends StatelessWidget {
                           ],
                         ),
                       ),
+                      AdaptivePositioned(
+                        textButton(radius:1,  width:double.maxFinite, height:70,text: "+ Business place", onPressed: (){}, buttonColor: hexColor("186F93"),addIcon: false, textColor: white, textSize: 16,),
+                        left: 0,
+                        top: 500,
+                        right: 0,
+                      )
                     ],
                   ),
                 )

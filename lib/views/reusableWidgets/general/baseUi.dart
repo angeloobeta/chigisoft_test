@@ -1,5 +1,4 @@
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
-import 'package:chigisoft_test/views/reusableWidgets/general/sliverAppBar.dart';
 
 class BaseUi extends StatelessWidget {
   final List<Widget> children;

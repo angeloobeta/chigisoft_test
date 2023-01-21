@@ -1,5 +1,6 @@
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
         // home: SignIn()
         // home: HomePage()
         // home: const Businessess());
-        home: const HomeAgent());
+        home: const BusinessDetail());
   }
 }

@@ -1,7 +1,6 @@
-// this is a sized box class
 
+import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
-import '../../model/utilities/imports/generalImport.dart';
 
 class S extends StatelessWidget {
   // h is height, w is width

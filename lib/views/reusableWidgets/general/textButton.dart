@@ -4,6 +4,7 @@ Widget textButton(
     {required String text,
     required Function onPressed,
     required bool addIcon,
+      bool? align,
     IconData? icon,
     Color? iconColor,
     Color? textColor,
@@ -20,10 +21,13 @@ Widget textButton(
         color: buttonColor, borderRadius: BorderRadius.circular(radius ?? 10)),
     child: Center(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: align == true ?MainAxisAlignment.start :MainAxisAlignment.center,
         children: [
-          GeneralTextDisplay(text, textColor ?? black, 1, textSize ?? 14,
-              FontWeight.w600, "button"),
+          Padding(
+            padding: const EdgeInsets.only(left:15.0),
+            child: GeneralTextDisplay(text, textColor ?? black, 1, textSize ?? 14,
+                FontWeight.w600, "button"),
+          ),
           if (addIcon == true)
             GeneralIconDisplay(icon ?? Icons.keyboard_arrow_down,
                 iconColor ?? hexColor("646A86"), UniqueKey(), 25)
