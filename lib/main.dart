@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         // debugShowCheckedModeBanner: false,
-        title: 'Sorosoke',
+        title: 'chigisoft_test',
         initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
         theme: ThemeData(
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         // home: SignIn()
         // home: HomePage()
         // home: const Businessess());
-        home: const BusinessDetail());
+        // home: const BusinessDetail());
+        home: const HomeAgent());
   }
 }

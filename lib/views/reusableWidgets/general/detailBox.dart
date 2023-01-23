@@ -17,12 +17,28 @@ class DetailBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(5)
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                   flex:1,
-                  child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                  child:Padding(
+                    padding: const EdgeInsets.only(top: 50.0),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      S(h:46, w:46,
+                        child: Container(
+                          decoration:  BoxDecoration(
+                              shape:BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(5),
+                            color: grey
+                          ),
+                          child: GeneralIconDisplay(Icons.house, hexColor("FFFFFF"),UniqueKey(),30)
+                        )
+                      )
 
-            ],)),
+            ],),
+                  )),
             Expanded(
               flex: 3,
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,

@@ -12,7 +12,7 @@ class BusinessDetail extends StatelessWidget {
           allowScrolling: true,
           children: [
              Padding(
-              padding: const EdgeInsets.only(top: 50,left: 20.0, right: 20),
+              padding: const EdgeInsets.only(top: 30,left: 20.0, right: 20),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                 DetailBox(),

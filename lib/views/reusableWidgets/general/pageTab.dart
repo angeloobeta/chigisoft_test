@@ -4,6 +4,7 @@ import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
 Widget pageTab(context, {double? top, TabEnum? tabEnum}) {
   return Positioned(
+    bottom: sS(context).cH(height: 0),
     child: Center(
       child: Container(
         width: sS(context).cW(width: 375),
@@ -109,7 +110,6 @@ Widget pageTab(context, {double? top, TabEnum? tabEnum}) {
         ),
       ),
     ),
-    bottom: sS(context).cH(height: 0),
   );
 }
 

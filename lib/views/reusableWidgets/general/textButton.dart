@@ -21,7 +21,7 @@ Widget textButton(
         color: buttonColor, borderRadius: BorderRadius.circular(radius ?? 10)),
     child: Center(
       child: Row(
-        mainAxisAlignment: align == true ?MainAxisAlignment.start :MainAxisAlignment.center,
+        mainAxisAlignment: align == true ? MainAxisAlignment.start :MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left:15.0),
