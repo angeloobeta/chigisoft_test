@@ -2,17 +2,15 @@ import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
 class SignInViewModel extends BaseModel {
 //? text fields
-  TextEditingController loginPhoneController = TextEditingController();
+  TextEditingController loginUserController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
-  TextEditingController baseUrlController = TextEditingController();
 
   //? error booleans
-  bool phoneError = false; //? error booleans
-  bool baseUrlError = false;
+  bool userError = false; //? error booleans
   bool passwordError = false;
 
 // ? focus Nodes
-  FocusNode phoneFocusNode = FocusNode(); // ? focus Nodes
+  FocusNode userFocusNode = FocusNode(); // ? focus Nodes
   FocusNode baseUrlFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
 
@@ -26,32 +24,21 @@ class SignInViewModel extends BaseModel {
 
   // onChanged function for phone number and password
   onChangedFunction() {
-    phoneFocusNode.addListener(() {
-      if (phoneFocusNode.hasFocus == false) {
-        phoneError = false;
+    userFocusNode.addListener(() {
+      if (userFocusNode.hasFocus == false) {
+        userError = false;
         notifyListeners();
       }
     });
 
-    if (int.tryParse(loginPhoneController.text) == null) {
-      if (validateEmail.isValidEmail(loginPhoneController.text.trim())) {
-        phoneError = false;
+    if (int.tryParse(loginUserController.text) == null) {
+      if (validateEmail.isValidEmail(loginUserController.text.trim())) {
+        userError = false;
         notifyListeners();
       } else {
-        phoneError = true;
+        userError = true;
         notifyListeners();
       }
-    } else if (int.tryParse(loginPhoneController.text) != null) {
-      if (validatePhone.isValidPhone(loginPhoneController.text.trim())) {
-        phoneError = false;
-        notifyListeners();
-      } else {
-        phoneError = true;
-        notifyListeners();
-      }
-    } else {
-      phoneError = true;
-      notifyListeners();
     }
   } // onChanged function for password entry
 
@@ -74,28 +61,19 @@ class SignInViewModel extends BaseModel {
   // login user
 
   loginUserAccount(context) async {
-    if (loginPhoneController.text.isEmpty) {
-      phoneError = true;
+    if (loginUserController.text.isEmpty) {
+      userError = true;
       notifyListeners();
-    } else if (phoneError == true &&
-        int.tryParse(loginPhoneController.text) == null) {
-      if (validateEmail.isValidEmail(loginPhoneController.text.trim())) {
-        phoneError = false;
+    } else if (userError == true &&
+        int.tryParse(loginUserController.text) != null) {
+      if (loginUserController.text.isNotEmpty) {
+        userError = false;
         notifyListeners();
       } else {
-        phoneError = true;
+        userError = true;
         notifyListeners();
       }
-    } else if (phoneError == true &&
-        int.tryParse(loginPhoneController.text) != null) {
-      if (validatePhone.isValidPhone(loginPhoneController.text.trim())) {
-        phoneError = false;
-        notifyListeners();
-      } else {
-        phoneError = true;
-        notifyListeners();
-      }
-    } else if (!isValidPassword(loginPasswordController.text.trim())) {
+    } else if (loginPasswordController.text.isEmpty) {
       passwordError = true;
       passwordFocusNode.requestFocus();
       notifyListeners();
@@ -105,7 +83,6 @@ class SignInViewModel extends BaseModel {
         cancellationToken = CancellationToken();
         notifyListeners();
         // load baseUrl
-        loadBaseurl().then((value) async {
           loadingDialog(context,
               text: "Kindly hold on, while we check for your account",
               onWillPop: () {
@@ -113,27 +90,15 @@ class SignInViewModel extends BaseModel {
           });
           await LoginUser.loginUser(
                   cancellationToken: cancellationToken!,
-                  baseUrl: baseUrl,
-                  phoneOrEmail: loginPhoneController.text.trim(),
+              usernameOrEmail: loginUserController.text.trim(),
                   password: loginPasswordController.text.trim())
               .then((value) async {
-            if (value
-
-                // LoginResponse
-                ) {
+            if (value is LogInResponse) {
               Navigator.pop(context);
               await LocalStorage.setString(tokenKey, value.token!);
               print(" This is token ==>   ${value.token}");
-
-              // await LocalStorage.setString(firstName, value.firstName!);
-              // await LocalStorage.setString(lastName, value.lastName!);
-              // await LocalStorage.setString(phoneNumber, value.mobile!);
-              // await LocalStorage.setString(accountIDString, value.id!);
-              Navigator.pushReplacementNamed(context, '/homePage');
-            } else if (value
-                // is LoginError
-
-                ) {
+              Navigator.pushReplacementNamed(context, homeAgentPage);
+            } else if (value is LoginErrorResponse) {
               Navigator.pop(context);
               loaderWithClose(
                 context,
@@ -191,7 +156,6 @@ class SignInViewModel extends BaseModel {
             }
           });
           ;
-        });
       } catch (errorValue) {
         if (errorValue is SocketException) {
           Navigator.pop(context);

@@ -1,4 +1,4 @@
-class UserLoggedInResponse {
+class LogInResponse {
   int? id;
   String? username;
   String? email;
@@ -8,7 +8,7 @@ class UserLoggedInResponse {
   String? image;
   String? token;
 
-  UserLoggedInResponse(
+  LogInResponse(
       {this.id,
         this.username,
         this.email,
@@ -18,7 +18,7 @@ class UserLoggedInResponse {
         this.image,
         this.token});
 
-  UserLoggedInResponse.fromJson(Map<String, dynamic> json) {
+  LogInResponse.fromMap(Map<String, dynamic> json) {
     id = json['id'];
     username = json['username'];
     email = json['email'];
@@ -29,7 +29,7 @@ class UserLoggedInResponse {
     token = json['token'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['username'] = this.username;
@@ -50,11 +50,11 @@ class LoginErrorResponse {
 
   LoginErrorResponse({this.message});
 
-  LoginErrorResponse.fromJson(Map<String, dynamic> json) {
+  LoginErrorResponse.fromMap(Map<String, dynamic> json) {
     message = json['message'];
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['message'] = this.message;
     return data;

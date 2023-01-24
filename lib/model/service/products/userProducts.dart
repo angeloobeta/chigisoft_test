@@ -22,7 +22,7 @@ class LoginUser {
           : phoneOrEmail,
       "password": password
     };
-    var url = baseUrl + loginUserUrl;
+    var url = loginUrl;
     try {
       var respond = HttpClientHelper.post(
         Uri.parse(url),

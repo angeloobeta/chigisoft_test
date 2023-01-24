@@ -260,19 +260,20 @@ class HomeAgent extends StatelessWidget {
                             children: [
                               textButton(radius:5,  align: true,  width:double.maxFinite, height: 45,text: "NAME", onPressed: (){}, buttonColor: hexColor("E7EAF4"),addIcon: false),
                               AdaptivePositioned(
-                                ExpansionPanelList.radio(
-                                  children: model.paragraphs
-                                      .map((items) => ExpansionPanelRadio(
-                                          value: items,
-                                          headerBuilder: (context, isExpanded) =>
-                                              ListTile(
-                                                title: Text(items.headers!),
-                                              ),
-                                          body: ListTile(title: Text(items.body!))))
+                                ExpansionPanelList(
+                                  expansionCallback: (index, isExpanded) {model.isExpanded(index, isExpanded);},
+                                  children: model.paragraphs.map((items) => ExpansionPanel(
+                                      canTapOnHeader: true,
+                                      isExpanded : items.isExpanded,
+                                      headerBuilder: (context, isExpanded) =>
+                                          ListTile(
+                                            title: Text(items.headers!),
+                                          ),
+                                      body: ListTile(title: Text(items.body!))))
                                       .toList(),
                                 ),
                                 left: 300,
-                                top: 500,
+                                top: 80,
                               ),
                             ],
                           ),

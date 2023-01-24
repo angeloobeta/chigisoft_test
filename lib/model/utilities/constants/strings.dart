@@ -1,6 +1,5 @@
 // constants of string
 // screen sizing
-import 'package:chigisoft_test/model/service/accounts/userLoggedIn.dart';
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
 ScreenSize sS(
@@ -62,4 +61,4 @@ ValidateEmailAddress validateEmail = ValidateEmailAddress();
 ValidatePhoneNumber validatePhone = ValidatePhoneNumber();
 LocalStorage localStorage = LocalStorage();
 LoginUser loginUser = LoginUser();
-UserLoggedIn userData = UserLoggedIn();
+LogInResponse userData = LogInResponse();

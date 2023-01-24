@@ -192,7 +192,7 @@ loaderWithCloseNoScheduler(BuildContext context,
                 S(h: 20),
                 GeneralTextDisplay(
                   text,
-                  blue,
+                  hexColor("186F93"),
                   6,
                   14,
                   FontWeight.w500,

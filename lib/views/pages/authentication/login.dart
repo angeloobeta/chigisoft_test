@@ -50,19 +50,20 @@ class SignIn extends StatelessWidget {
                           // phone number
                           textAndTextField(context,
                               textInputType: TextInputType.text,
-                              controller: model.loginPhoneController,
+                              controller: model.loginUserController,
+                              textFieldLabel:"Enter your email",
                               hint: "Enter your email", onChanged: () {
                             model.onChangedFunction();
                           },
                               inputFormatter: [],
-                              errorTextActive: model.phoneError,
-                              focusNode: model.phoneFocusNode,
+                              errorTextActive: model.userError,
+                              focusNode: model.userFocusNode,
                               prefix: null,
                               suffix: null,
                               labelText: 'Email address'),
                           S(h: 20),
-                          if (model.phoneError == true &&
-                              int.tryParse(model.loginPhoneController.text) !=
+                          if (model.userError == true &&
+                              int.tryParse(model.loginUserController.text) !=
                                   null)
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,28 +72,22 @@ class SignIn extends StatelessWidget {
                                   h: 30,
                                   w: 253,
                                   child: GeneralTextDisplay(
-                                    model.loginPhoneController.text.isEmpty
-                                        ? 'Empty Field: Please enter email address or phone number!'
-                                        : model.loginPhoneController.text.length == 11 &&
-                                                validatePhone.isValidPhone(model
-                                                    .loginPhoneController.text)
+                                    model.loginUserController.text.isEmpty
+                                        ? 'Empty Field: Please username or phone number!'
+                                        : model.loginUserController.text.length == 5
                                             ? ""
-                                            : model.loginPhoneController.text.length ==
-                                                        11 &&
-                                                    !validatePhone.isValidPhone(
-                                                        model
-                                                            .loginPhoneController
-                                                            .text)
-                                                ? "Phone number is invalid"
-                                                : model.loginPhoneController
+                                            : model.loginUserController.text.length ==
+                                                        5
+                                                ? "Username is invalid"
+                                                : model.loginUserController
                                                             .text.isNotEmpty &&
-                                                        model.loginPhoneController
+                                                        model.loginUserController
                                                                 .text.length <=
-                                                            11
-                                                    ? "You have entered ${model.loginPhoneController.text.isEmpty ? "0" : model.loginPhoneController.text.length} out of 11 digit"
-                                                    : model.loginPhoneController
+                                                            5
+                                                    ? "You have entered ${model.loginUserController.text.isEmpty ? "0" : model.loginUserController.text.length} out of 11 digit"
+                                                    : model.loginUserController
                                                                 .text.isNotEmpty &&
-                                                            model.loginPhoneController
+                                                            model.loginUserController
                                                                     .text.length >
                                                                 11
                                                         ? "Phone number is invalid, length is greater than 11"
@@ -109,14 +104,14 @@ class SignIn extends StatelessWidget {
                               ],
                             ),
 
-                          if (model.phoneError == true &&
-                              int.tryParse(model.loginPhoneController.text) ==
+                          if (model.userError == true &&
+                              int.tryParse(model.loginUserController.text) ==
                                   null)
                             Column(
                               children: [
                                 GeneralTextDisplay(
-                                    model.loginPhoneController.text.isEmpty
-                                        ? 'Empty Field, enter email address or phone Number!'
+                                    model.loginUserController.text.isEmpty
+                                        ? 'Empty Field, enter email address or username!'
                                         : 'Please enter a valid email address!',
                                     error,
                                     1,
@@ -149,11 +144,10 @@ class SignIn extends StatelessWidget {
                                   child: GeneralIconDisplay(
                                       model.showText
                                           ? Icons.visibility
-                                          : Icons.visibility_off,
-                                      const Color.fromRGBO(51, 51, 57, 1),
+                                          : Icons.visibility_off, grey,
                                       UniqueKey(),
                                       18)),
-                              labelText: 'Password'),
+                              labelText: 'Password', textFieldLabel: "Enter your password"),
                           S(h: 20),
                           if (model.passwordError == true)
                             Column(
@@ -171,7 +165,7 @@ class SignIn extends StatelessWidget {
                                                     .loginPasswordController
                                                     .text
                                                     .trim())
-                                                ? 'Invalid password, Length must be more than 7 and contains lower case, upper case , digit and  symbol'
+                                                ? 'Invalid password,'
                                                 : "",
                                         Colors.red,
                                         4,

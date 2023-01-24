@@ -4,25 +4,20 @@ import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 class LoginUser {
   // function to login user
   static Future loginUser(
-      {required String phoneOrEmail,
+      {required String usernameOrEmail,
       required String password,
-      required String baseUrl,
       required CancellationToken cancellationToken}) async {
     Map<String, String> header = {
       'Accept': "application/json",
+      'Accept-Encoding':'gzip, deflate, br',
+      'Connection':'keep-alive'
     };
-    String splitString;
-    if (int.tryParse(phoneOrEmail) != null) {
-      splitString = phoneOrEmail.substring(1);
-      print("The email address ${splitString}");
-    }
+
     var data = {
-      "email_or_phone_number": int.tryParse(phoneOrEmail) != null
-          ? "+234${phoneOrEmail.substring(1)}"
-          : phoneOrEmail,
+      "username": usernameOrEmail,
       "password": password
     };
-    var url = baseUrl + loginUserUrl;
+    var url = loginUrl;
     try {
       var respond = HttpClientHelper.post(
         Uri.parse(url),
@@ -39,23 +34,15 @@ class LoginUser {
         if (response.statusCode == 200) {
           var decoded = json.decode(parsed);
 
-          if (
-
-          // UserLoggedInResponse.fromMap(decoded).id!.isEmpty
-          true
-              ) {
+          if (LogInResponse.fromMap(decoded).id!.isNaN) {
             return 'error';
           } else {
-            return false;
-            // LoginResponse.fromMap(decoded);
+            return LogInResponse.fromMap(decoded);
           }
         } else {
           var decoded = json.decode(parsed);
-          if (decoded is Map
-              // || LoginErrorResponse.fromMap(decoded).message!.isNotEmpty
-          ) {
-            return true;
-              // LoginErrorRespone.fromMap(decoded);
+          if (decoded is Map || LoginErrorResponse.fromMap(decoded).message!.isNotEmpty) {
+              return LoginErrorResponse.fromMap(decoded);
           } else {
             debugPrint(parsed);
             return 'error';
