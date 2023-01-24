@@ -75,11 +75,7 @@ class HomeAgent extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left:20.0),
                           child: AdaptivePositioned(
-                            Row(
-                              children: const [
-                                BoxContainer()
-                              ],
-                            ),
+                            BoxContainer(),
                             left: 25,
                             top: 140,
                           ),

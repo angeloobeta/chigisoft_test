@@ -8,7 +8,7 @@ class BoxContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 190,
-      width: 418,
+      width: double.maxFinite,
       decoration: BoxDecoration(
           color: hexColor("E7F0F4"),
           shape: BoxShape.rectangle,
@@ -28,7 +28,7 @@ class BoxContainer extends StatelessWidget {
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(left:150.0, right: 20),
+                  padding: const EdgeInsets.only(left:120.0, right: 20),
                   child: textButton(width: 100,iconColor: white,buttonColor: hexColor("186F93"), textColor: white,text: "Today", onPressed: (){}, addIcon: true),
                 )
 
