@@ -152,31 +152,26 @@ class SignIn extends StatelessWidget {
                           if (model.passwordError == true)
                             Column(
                               children: [
-                                Row(
-                                  children: [
-                                    S(
-                                      h: 90,
-                                      w: 325,
-                                      child: GeneralTextDisplay(
-                                        model.loginPasswordController.text
-                                                .isEmpty
-                                            ? 'Empty Field, enter password!'
-                                                : "",
-                                        Colors.red,
-                                        4,
-                                        14,
-                                        FontWeight.w600,
-                                        'saving data',
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ],
+                                S(
+                                  h: 20,
+                                  w: 325,
+                                  child: GeneralTextDisplay(
+                                    model.loginPasswordController.text
+                                            .isEmpty
+                                        ? 'Empty Field, enter password!'
+                                            : "",
+                                    Colors.red,
+                                    4,
+                                    14,
+                                    FontWeight.w600,
+                                    'saving data',
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
-                                S(h: 15),
+                                S(h: 30),
+
                               ],
                             ),
-                          // forgot password
-
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -190,10 +185,12 @@ class SignIn extends StatelessWidget {
                                     ""),
                                 onTap: () {},
                               ),
-                              S(w: 24)
+                              // S(w: 24)
                             ],
                           ),
-                          S(h: 110),
+                          // forgot password
+
+                          S(h: 100),
                           // sign up
 
                           buttonWidget(
