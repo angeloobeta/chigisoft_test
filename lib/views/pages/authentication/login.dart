@@ -161,11 +161,6 @@ class SignIn extends StatelessWidget {
                                         model.loginPasswordController.text
                                                 .isEmpty
                                             ? 'Empty Field, enter password!'
-                                            : !isValidPassword(model
-                                                    .loginPasswordController
-                                                    .text
-                                                    .trim())
-                                                ? 'Invalid password,'
                                                 : "",
                                         Colors.red,
                                         4,

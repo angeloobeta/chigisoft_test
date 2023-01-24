@@ -38,7 +38,7 @@ class BaseUi extends StatelessWidget {
               child: RefreshIndicator(
                 displacement: 100,
                 backgroundColor: blue,
-                color: white,
+                color: black,
                 strokeWidth: 3,
                 triggerMode: RefreshIndicatorTriggerMode.onEdge,
                 onRefresh: () async {

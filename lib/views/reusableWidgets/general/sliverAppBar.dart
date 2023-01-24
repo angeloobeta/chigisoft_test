@@ -21,7 +21,10 @@ class sliverAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: backgroundColor ?? white,
-      elevation: 10,
+      elevation: 7,
+       iconTheme: IconThemeData(
+      color: black, //change your color here
+    ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

@@ -85,6 +85,7 @@ class SignInViewModel extends BaseModel {
         // load baseUrl
           loadingDialog(context,
               text: "Kindly hold on, while we check for your account",
+              color: black,
               onWillPop: () {
             return cancel(context);
           });
