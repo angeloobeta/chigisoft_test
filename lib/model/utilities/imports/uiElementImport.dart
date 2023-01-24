@@ -8,4 +8,3 @@ export 'package:chigisoft_test/views/uiElements/generalTextDisplay.dart';
 export 'package:chigisoft_test/views/uiElements/generalTextFieldDisplay.dart';
 export 'package:chigisoft_test/views/uiElements/screenSizing.dart';
 export 'package:chigisoft_test/views/uiElements/sizedBox.dart';
-export 'package:chigisoft_test/views/uiElements/snackBar.dart';

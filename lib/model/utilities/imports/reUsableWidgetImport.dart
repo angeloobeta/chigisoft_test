@@ -5,7 +5,6 @@ export 'package:chigisoft_test/views/reusableWidgets/general/appBar.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/baseUi.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/button.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/dialog.dart';
-export 'package:chigisoft_test/views/reusableWidgets/general/imageAvatar.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/loading.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/sliverAppBar.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/textButton.dart';
