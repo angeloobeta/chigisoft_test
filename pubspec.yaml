@@ -51,6 +51,7 @@ dependencies:
   http_client_helper: ^2.0.3
   dotted_border: ^2.0.0+3
   font_awesome_flutter: ^10.3.0
+  flutter_advanced_drawer: ^1.3.3
 
 dev_dependencies:
   flutter_test:

@@ -1,1 +1,1 @@
-export 'package:chigisoft_test/model/models/Items.dart';
+export 'package:chigisoft_test/model/models/products/Items.dart';

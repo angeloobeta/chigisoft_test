@@ -5,27 +5,35 @@ class RouteGenerator {
     // Getting arguments passed in while calling Navigator.pushNamed
     switch (settings.name) {
 
-      // // chatHomePage pages
-      // case chatHomePage:
-      //   return MaterialPageRoute(
-      //     settings: settings,
-      //     builder: (_) => const
-      //     ChatHomePage(),
-      //   );
+    // login page
+      case homeAgentPage:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const
+          HomeAgent(),
+        );
 
-      // chatNewMessage page
-      // case newMessagePage:
-      //   return MaterialPageRoute(
-      //     settings: settings,
-      //     builder: (_) => const NewMessagePage(),
-      //   );
+      // login page
+      case login:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const
+          SignIn(),
+        );
 
-      // chatRecentMessage page
-      // case recentMessagePage:
-      //   return MaterialPageRoute(
-      //     settings: settings,
-      //     builder: (_) => const RecentMessagePage(),
-      //   );
+      // business page
+      case businessPage:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const Business(),
+        );
+
+      // business info page
+      case businessInfoPage:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) => const BusinessInfo(),
+        );
 
       //chatM
       default:

@@ -1,4 +1,5 @@
 // this service is used to get the user details for bank account
+import 'package:chigisoft_test/model/models/authentication/loginResponse.dart';
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
 class UserLoggedIn {
@@ -7,7 +8,6 @@ class UserLoggedIn {
       {required String userToken, required String baseUrl}) async {
     Map<String, String> header = {
       'accept': 'application/json',
-      "x-api-key": "MonieTreeeKey",
       "Authorization": userToken
     };
     var url = baseUrl;
@@ -20,9 +20,8 @@ class UserLoggedIn {
 
       if (response.statusCode == 200) {
         Map<String, dynamic> decoded = json.decode(parsed);
-        return true;
 
-        // UserLoggedInResponse.fromJson(decoded);
+        UserLoggedInResponse.fromJson(decoded);
       } else {
         // print('i am parsed $parsed');
         return "error";

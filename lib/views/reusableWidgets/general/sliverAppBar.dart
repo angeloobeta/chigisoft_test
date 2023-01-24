@@ -1,4 +1,5 @@
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
+import 'package:chigisoft_test/views/reusableWidgets/general/drawer.dart';
 
 class sliverAppBar extends StatelessWidget with PreferredSizeWidget {
   final Color? backgroundColor;
@@ -14,6 +15,7 @@ class sliverAppBar extends StatelessWidget with PreferredSizeWidget {
       this.title,
       this.actions})
       : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +43,13 @@ class sliverAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 10.0),
-          child: GeneralIconDisplay(
-              Icons.menu, hexColor("646A86"), UniqueKey(), 35),
+          child: GestureDetector(
+            onDoubleTap:(){
+              print("Side drawer was called");
+            } ,
+            child: GeneralIconDisplay(
+                Icons.menu, hexColor("646A86"), UniqueKey(), 35),
+          ),
         )
       ],
     );

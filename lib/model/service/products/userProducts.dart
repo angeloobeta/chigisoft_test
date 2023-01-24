@@ -1,15 +1,15 @@
-import 'package:chigisoft_test/model/models/authentication/loginResponse.dart';
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
 
 class LoginUser {
   // function to login user
   static Future loginUser(
       {required String phoneOrEmail,
-      required String password,
-      required String baseUrl,
-      required CancellationToken cancellationToken}) async {
+        required String password,
+        required String baseUrl,
+        required CancellationToken cancellationToken}) async {
     Map<String, String> header = {
       'Accept': "application/json",
+      "x-api-key": "MonieTreeeKey"
     };
     String splitString;
     if (int.tryParse(phoneOrEmail) != null) {
@@ -39,11 +39,10 @@ class LoginUser {
         if (response.statusCode == 200) {
           var decoded = json.decode(parsed);
 
-          if (
+          if (true
 
-          // UserLoggedInResponse.fromMap(decoded).id!.isEmpty
-          true
-              ) {
+          // LoginResponse.fromMap(decoded).id!.isEmpty
+          ) {
             return 'error';
           } else {
             return false;
@@ -51,15 +50,13 @@ class LoginUser {
           }
         } else {
           var decoded = json.decode(parsed);
-          if (decoded is Map
-              // || LoginErrorResponse.fromMap(decoded).message!.isNotEmpty
-          ) {
-            return true;
-              // LoginErrorRespone.fromMap(decoded);
-          } else {
-            debugPrint(parsed);
-            return 'error';
-          }
+          // if (decoded is Map ||
+          //     LoginError.fromMap(decoded).message!.isNotEmpty) {
+          //   return LoginError.fromMap(decoded);
+          // } else {
+          //   debugPrint(parsed);
+          //   return 'error';
+          // }
         }
       });
 

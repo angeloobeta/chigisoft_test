@@ -14,3 +14,4 @@ export 'package:chigisoft_test/views/reusableWidgets/general/textSearchField.dar
 export 'package:chigisoft_test/views/reusableWidgets/general/detailBox.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/boxContainer.dart';
 export 'package:chigisoft_test/views/reusableWidgets/general/divider.dart';
+export 'package:chigisoft_test/views/reusableWidgets/general/drawer.dart';

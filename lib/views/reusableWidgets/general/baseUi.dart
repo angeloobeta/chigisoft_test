@@ -1,4 +1,5 @@
 import 'package:chigisoft_test/model/utilities/imports/generalImport.dart';
+import 'package:chigisoft_test/views/reusableWidgets/general/drawer.dart';
 
 class BaseUi extends StatelessWidget {
   final List<Widget> children;

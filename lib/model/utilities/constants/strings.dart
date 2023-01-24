@@ -17,11 +17,10 @@ const String tokenKey = 'token';
 String baseUrlString = 'baseUrlString';
 
 // page route string
-const String onBoard = '/onBoard';
 const String login = '/login';
-const String chatHomePage = "/ChatHomePage";
-const String newMessagePage = "/NewMessagePage";
-const String recentMessagePage = "/RecentMessagePage";
+const String businessPage = "/businessPage";
+const String businessInfoPage = "/businessInfoPage";
+const String homeAgentPage = "/homeAgentPage";
 
 // error string
 const String networkError =

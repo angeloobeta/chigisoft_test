@@ -22,7 +22,7 @@ class SignIn extends StatelessWidget {
                               "assets/images/ministry_commerce.png")),
                     ],
                   ),
-                  left: 24,
+                  left: 0,
                   top: 160),
 
               // text field and sign in button
